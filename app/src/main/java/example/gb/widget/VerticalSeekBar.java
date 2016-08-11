@@ -3,6 +3,7 @@ package example.gb.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 
@@ -49,6 +50,7 @@ public class VerticalSeekBar extends SeekBar {
             case MotionEvent.ACTION_UP:
                 setProgress(getMax() - (int) (getMax() * event.getY() / getHeight()));
                 onSizeChanged(getWidth(), getHeight(), 0, 0);
+
                 break;
 
             case MotionEvent.ACTION_CANCEL:

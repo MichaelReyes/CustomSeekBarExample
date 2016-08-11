@@ -3,7 +3,7 @@
 
     <!--    <item android:drawable="@drawable/progress_circular_background"/> -->
     <item>
-        <shape>
+        <shape android:shape="rectangle">
             <gradient
                 android:endColor="#454455"
                 android:startColor="#560"
