@@ -3,22 +3,34 @@ package example.gb.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 
 public class VerticalSeekBar extends SeekBar {
 
+    private VerticalSeekBarListener listener;
+
     public VerticalSeekBar(Context context) {
         super(context);
+        initializeListener(context);
     }
 
     public VerticalSeekBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        initializeListener(context);
     }
 
     public VerticalSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initializeListener(context);
+    }
+
+    private void initializeListener(Context context) {
+        if (context instanceof VerticalSeekBarListener) {
+            listener = (VerticalSeekBarListener) context;
+        } else {
+            //throw new RuntimeException(context.getClass().getSimpleName() + " must implement VerticalSeekBarListener");
+        }
     }
 
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -34,7 +46,8 @@ public class VerticalSeekBar extends SeekBar {
     protected void onDraw(Canvas c) {
         c.rotate(-90);
         c.translate(-getHeight(), 0);
-
+        if (listener != null)
+            listener.onInitializeSeekBar();
         super.onDraw(c);
     }
 
@@ -57,5 +70,9 @@ public class VerticalSeekBar extends SeekBar {
                 break;
         }
         return true;
+    }
+
+    public interface VerticalSeekBarListener {
+        void onInitializeSeekBar();
     }
 }

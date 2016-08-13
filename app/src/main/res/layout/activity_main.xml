@@ -10,14 +10,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
-        android:layout_marginRight="-00dp"
+        android:layout_marginRight="-20dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/customTextProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="165dp"
             android:paddingRight="10dp"
             android:layout_marginLeft="20dp"
             android:text="0"
@@ -37,16 +37,22 @@
     </LinearLayout>
 
     <example.gb.widget.VerticalSeekBar
-        android:id="@+id/customSeekBar"
-        android:layout_width="50dp"
-        android:layout_height="260dp"
         android:layout_alignTop="@+id/linearLayout"
         android:layout_toEndOf="@+id/linearLayout"
         android:layout_toRightOf="@+id/linearLayout"
+        android:id="@+id/customSeekBar"
+        android:layout_width="70dp"
+        android:layout_height="160dp"
         android:max="100"
-        android:progress="20"
+        android:progress="0"
         android:progressDrawable="@drawable/stylish_progress_drawable"
         android:thumb="@drawable/shape_seek_bar_text_thumb"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
+
+
 
 </RelativeLayout>
